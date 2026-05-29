@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-api
+spec:
+  replicas: 2                  # ⚠️ 关键要求：副本数=2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: flask-api
+        # ⚠️ 换成你自己的华为云 SWR 后端镜像地址
+        image: swr.cn-north-4.myhuaweicloud.com/zmh2482/backend:v1
+        resources:             # ⚠️ 关键要求：设置 resources 的 requests 和 limits
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+        env:                   # ⚠️ configMapRef 和 secretKeyRef 注入
+        - name: REDIS_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: REDIS_HOST
+        - name: REDIS_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: REDIS_PORT
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: REDIS_PASSWORD
+        ports:
+        - containerPort: 5000

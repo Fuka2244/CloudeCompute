@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>云计算课程设计</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .box { border: 1px solid #ccc; padding: 20px; display: inline-block; border-radius: 8px; box-shadow: 2px 2px 10px #eee; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Flask + Redis 演示系统</h1>
+        
+        <h3>学号：2023112482，2023112418 姓名：朱梦涵，罗星月</h3>
+        
+        <p>后端接口测试状态：<span id="status">检测中...</span></p>
+    </div>
+
+    <script>
+        // 网页加载后自动请求后端的 /api/hello 接口
+        fetch('/api/hello')
+            .then(response => response.json())
+            .then(data => {
+                const statusEl = document.getElementById('status');
+                if(data.status === 'success') {
+                    statusEl.innerHTML = `连接成功！Redis 累计访问次数：${data.hits}`;
+                    statusEl.className = 'success';
+                } else {
+                    statusEl.innerText = 'Redis 连接失败';
+                    statusEl.className = 'error';
+                }
+            })
+            .catch(error => {
+                const statusEl = document.getElementById('status');
+                statusEl.innerText = '后端未启动或请求失败';
+                statusEl.className = 'error';
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: nginx-frontend
+        image: swr.cn-north-4.myhuaweicloud.com/zmh2482/frontend:v2
+        ports:
+        - containerPort: 80
+        # 👇 1. 在这里加入 volumeMounts 挂载（注意缩进，和 ports 对齐）
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf      # 仅覆盖单个文件，防止整个 conf.d 文件夹被清空
+      # 👇 2. 在这里加入 volumes 声明（注意缩进，和 containers 平级对齐）
+      volumes:
+      - name: config-volume
+        configMap:
+          name: nginx-config         # 指向第一步创建的 ConfigMap 名字

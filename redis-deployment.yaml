@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-db
+spec:
+  replicas: 1                  # 副本数=1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:alpine
+        # 启动时开启密码验证
+        command: ["redis-server", "--requirepass", "MyRedisPwd123"]
+        resources:
+          limits:
+            memory: "512Mi"   
+        ports:
+        - containerPort: 6379
+        # 👇 1. 在这里加入存储卷挂载（注意缩进，和 ports 严格对齐）
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+      # 👇 2. 在这里加入外部卷声明（注意缩进，和 containers 严格对齐）
+      volumes:
+      - name: redis-data
+        persistentVolumeClaim:
+          claimName: redis-data-pvc

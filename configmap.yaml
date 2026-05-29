@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  REDIS_HOST: "redis-svc"       # 对应后面 Redis Service 的名字
+  REDIS_PORT: "6379"
