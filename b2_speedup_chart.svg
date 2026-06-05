@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="450" y="34" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700">Measured Speedup vs Amdahl Theoretical Speedup</text>
+<line x1="90" y1="470.0" x2="860" y2="470.0" stroke="#e5e7eb"/>
+<text x="78" y="475.0" text-anchor="end" font-family="Arial" font-size="14" fill="#374151">0.9</text>
+<line x1="90" y1="401.7" x2="860" y2="401.7" stroke="#e5e7eb"/>
+<text x="78" y="406.7" text-anchor="end" font-family="Arial" font-size="14" fill="#374151">1.0</text>
+<line x1="90" y1="333.3" x2="860" y2="333.3" stroke="#e5e7eb"/>
+<text x="78" y="338.3" text-anchor="end" font-family="Arial" font-size="14" fill="#374151">1.1</text>
+<line x1="90" y1="265.0" x2="860" y2="265.0" stroke="#e5e7eb"/>
+<text x="78" y="270.0" text-anchor="end" font-family="Arial" font-size="14" fill="#374151">1.2</text>
+<line x1="90" y1="196.7" x2="860" y2="196.7" stroke="#e5e7eb"/>
+<text x="78" y="201.7" text-anchor="end" font-family="Arial" font-size="14" fill="#374151">1.3</text>
+<line x1="90" y1="128.3" x2="860" y2="128.3" stroke="#e5e7eb"/>
+<text x="78" y="133.3" text-anchor="end" font-family="Arial" font-size="14" fill="#374151">1.4</text>
+<line x1="90" y1="60.0" x2="860" y2="60.0" stroke="#e5e7eb"/>
+<text x="78" y="65.0" text-anchor="end" font-family="Arial" font-size="14" fill="#374151">1.5</text>
+<line x1="90.0" y1="60" x2="90.0" y2="470" stroke="#f3f4f6"/>
+<text x="90.0" y="498" text-anchor="middle" font-family="Arial" font-size="15" fill="#374151">1</text>
+<line x1="346.7" y1="60" x2="346.7" y2="470" stroke="#f3f4f6"/>
+<text x="346.7" y="498" text-anchor="middle" font-family="Arial" font-size="15" fill="#374151">2</text>
+<line x1="860.0" y1="60" x2="860.0" y2="470" stroke="#f3f4f6"/>
+<text x="860.0" y="498" text-anchor="middle" font-family="Arial" font-size="15" fill="#374151">4</text>
+<line x1="90" y1="470" x2="860" y2="470" stroke="#111827" stroke-width="1.5"/>
+<line x1="90" y1="60" x2="90" y2="470" stroke="#111827" stroke-width="1.5"/>
+<text x="450.0" y="534" text-anchor="middle" font-family="Arial" font-size="17">Number of MPI Processes (p)</text>
+<text x="24" y="280.0" text-anchor="middle" font-family="Arial" font-size="17" transform="rotate(-90 24 280.0)">Speedup</text>
+<path d="M 90.0 401.7 L 346.7 230.8 L 860.0 360.7" fill="none" stroke="#2563eb" stroke-width="3"/>
+<path d="M 90.0 401.7 L 346.7 230.8 L 860.0 107.8" fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="8 6"/>
+<circle cx="90.0" cy="401.7" r="6" fill="#2563eb" stroke="white" stroke-width="2"/>
+<text x="90.0" y="389.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#2563eb">1.00</text>
+<circle cx="346.7" cy="230.8" r="6" fill="#2563eb" stroke="white" stroke-width="2"/>
+<text x="346.7" y="218.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#2563eb">1.25</text>
+<circle cx="860.0" cy="360.7" r="6" fill="#2563eb" stroke="white" stroke-width="2"/>
+<text x="860.0" y="348.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#2563eb">1.06</text>
+<circle cx="90.0" cy="401.7" r="6" fill="#dc2626" stroke="white" stroke-width="2"/>
+<text x="90.0" y="423.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#dc2626">1.00</text>
+<circle cx="346.7" cy="230.8" r="6" fill="#dc2626" stroke="white" stroke-width="2"/>
+<text x="346.7" y="252.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#dc2626">1.25</text>
+<circle cx="860.0" cy="107.8" r="6" fill="#dc2626" stroke="white" stroke-width="2"/>
+<text x="860.0" y="129.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#dc2626">1.43</text>
+<rect x="592" y="52" width="260" height="64" fill="white" stroke="#d1d5db" rx="6"/>
+<line x1="610" y1="78" x2="652" y2="78" stroke="#2563eb" stroke-width="3"/>
+<circle cx="631" cy="78" r="5" fill="#2563eb"/>
+<text x="664" y="83" font-family="Arial" font-size="14">Measured Speedup</text>
+<line x1="610" y1="106" x2="652" y2="106" stroke="#dc2626" stroke-width="3" stroke-dasharray="8 6"/>
+<circle cx="631" cy="106" r="5" fill="#dc2626"/>
+<text x="664" y="111" font-family="Arial" font-size="14">Amdahl Theory (f=0.40)</text>
+</svg>

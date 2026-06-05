@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: integral-serial
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+      - name: swr-secret
+      restartPolicy: Never
+      containers:
+      - name: integral-serial
+        image: swr.cn-north-4.myhuaweicloud.com/lxy2418/mpi4py:latest
+        command:
+        - python
+        - /opt/mpi/integral_serial.py
+        volumeMounts:
+        - name: mpi-code
+          mountPath: /opt/mpi
+      volumes:
+      - name: mpi-code
+        configMap:
+          name: mpi-code
+  backoffLimit: 0
