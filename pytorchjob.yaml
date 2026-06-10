@@ -1,0 +1,24 @@
+apiVersion: "kubeflow.org/v1"
+kind: PyTorchJob
+metadata:
+  name: mnist-single-job
+  namespace: default
+spec:
+  pytorchReplicaSpecs:
+    # 单机训练：只保留 Master，一个 Pod，一个进程
+    Master:
+      replicas: 1
+      restartPolicy: OnFailure
+      template:
+        spec:
+          containers:
+            - name: pytorch
+              image: swr.cn-north-4.myhuaweicloud.com/zmh2482/mnist-ddp:v1
+              imagePullPolicy: Always
+              resources:
+                requests:
+                  cpu: "250m"
+                  memory: "512Mi"
+                limits:
+                  cpu: "1"
+                  memory: "2Gi"
